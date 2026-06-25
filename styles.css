@@ -1,0 +1,909 @@
+/* ==========================================================================
+   Instat Solutions - CSS Stylesheet
+   Color Scheme: Navy Blue, Emerald Green, Teal Blue, Amber, White, Light Grey
+   ========================================================================== */
+
+:root {
+    --primary-color: #1B3A6B;    /* Navy Blue */
+    --secondary-color: #2E8B57;  /* Emerald Green */
+    --accent-color: #2AA8C4;     /* Teal Blue */
+    --gold: #F5A623;             /* Amber (Data Point Accent) */
+    --bg-main: #FFFFFF;          /* White */
+    --bg-light: #F8F9FA;         /* Light Grey */
+    --footer-bg: #1B3A6B;        /* Footer Navy Blue */
+    
+    --text-main: #444444;        /* Dark Grey */
+    --text-muted: #666666;
+    --border-color: #E2E8F0;
+    
+    --font-family: 'Inter', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.section-title.center-line {
+    text-align: center;
+}
+.section-title.center-line::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.text-white {
+    color: #fff !important;
+}
+.text-center {
+    text-align: center;
+}
+
+.highlight-gold {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.badge-gold {
+    background-color: var(--gold);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.gold-star {
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Layout Sections
+   ========================================================================== */
+.section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.btn-services {
+    background: linear-gradient(to right, var(--accent-color) 50%, var(--primary-color) 50%);
+    background-size: 200% 100%;
+    background-position: left bottom;
+    color: #fff;
+    transition: background-position 300ms ease, transform 300ms ease;
+    border: none;
+}
+
+.btn-services:hover {
+    background-position: right bottom;
+    color: #fff;
+}
+
+.btn-whatsapp-hero {
+    background-color: var(--secondary-color);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 300ms ease, background-color 300ms ease;
+}
+
+.btn-whatsapp-hero:hover {
+    background-color: #236B43; /* Darker Emerald */
+}
+
+.btn-whatsapp {
+    background-color: #25D366; /* Specific WhatsApp Green for Contact Section */
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1EBE5C;
+    color: #fff;
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: background-color 300ms ease, box-shadow 300ms ease, padding 300ms ease;
+}
+
+/* Shrink nav on scroll */
+.nav-scrolled {
+    padding: 5px 0;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 300ms ease;
+}
+
+.nav-scrolled .nav-container {
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-img {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1); /* Make the logo white for the navy header */
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 300ms ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 300ms ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: var(--transition);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+    position: relative;
+    padding: 160px 0 100px;
+    background-color: #FFFFFF;
+    text-align: center;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Radial Teal Glow */
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(42,168,196,0.08) 0%, rgba(255,255,255,0) 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 3 Moving Blobs */
+.hero-blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    filter: blur(80px);
+    opacity: 0.06;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    animation: blobMorph 15s ease-in-out infinite alternate;
+}
+
+.blob-navy {
+    background-color: var(--primary-color);
+    width: 500px;
+    height: 500px;
+    top: -10%;
+    left: -10%;
+    animation-delay: 0s;
+}
+
+.blob-teal {
+    background-color: var(--accent-color);
+    width: 600px;
+    height: 600px;
+    bottom: -20%;
+    right: -10%;
+    animation-delay: -5s;
+}
+
+.blob-green {
+    background-color: var(--secondary-color);
+    width: 450px;
+    height: 450px;
+    top: 40%;
+    left: 40%;
+    animation-delay: -10s;
+}
+
+@keyframes blobMorph {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(100px, -50px) scale(1.1); }
+    66% { transform: translate(-50px, 100px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Banner Logo Wrapper & Sonar Ring */
+.hero-logo-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-logo {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+    /* Initial state for JS animation */
+    opacity: 0; 
+    transform: scale(0.85);
+}
+
+.sonar-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px; /* Or 50% if the logo is round, assuming rectangle here */
+    box-shadow: 0 0 0 0 rgba(42, 168, 196, 0.4);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+}
+
+/* Banner Animations (Triggered via JS by adding .animate class) */
+.hero.animate .hero-logo {
+    animation: logoBounceIn 900ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.hero.animate .sonar-ring {
+    animation: sonarPing 1200ms ease-out forwards;
+    animation-delay: 900ms;
+}
+
+@keyframes logoBounceIn {
+    0% { opacity: 0; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes sonarPing {
+    0% { opacity: 1; box-shadow: 0 0 0 0 rgba(42, 168, 196, 0.5); transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; box-shadow: 0 0 0 30px rgba(42, 168, 196, 0); transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Hero Text & Buttons */
+.hero-tagline {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+    min-height: 2.4rem; /* Prevent layout shift during typing */
+}
+
+/* Typewriter cursor */
+.hero-tagline.typing::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    font-weight: 400;
+    margin-bottom: 30px;
+    /* Initial state */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero-subtitle.animate-in {
+    animation: fadeSlideUp 400ms ease-out forwards;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    /* Initial state */
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.hero-buttons.animate-in {
+    animation: fadeSlideUp 400ms ease-out forwards;
+}
+
+@keyframes fadeSlideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* WhatsApp Button Infinite Pulse */
+.btn-whatsapp-hero {
+    animation: heroButtonPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes heroButtonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* Bouncing Scroll Chevron */
+.scroll-chevron {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--accent-color);
+    animation: bounce 2s infinite;
+    transition: opacity 300ms ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-15px) translateX(-50%); }
+    60% { transform: translateY(-7px) translateX(-50%); }
+}
+
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.leadership-title {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.leadership-list li {
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    padding-left: 15px;
+    position: relative;
+}
+.leadership-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.profile-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ==========================================================================
+   Services Section (Cards)
+   ========================================================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 4px solid var(--accent-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    transition: transform 300ms ease, box-shadow 300ms ease;
+    cursor: default;
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card-list {
+    position: relative;
+    z-index: 1;
+}
+
+.card-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+.card-list li:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   Education (Timeline)
+   ========================================================================== */
+.timeline {
+    border-left: 2px solid var(--accent-color);
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+.timeline-date {
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.institution {
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   Publications
+   ========================================================================== */
+.pub-group {
+    margin-bottom: 30px;
+}
+
+.pub-group h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 0;
+    transition: padding-left 600ms ease-out, border-left-width 600ms ease-out;
+}
+
+.pub-group h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--accent-color);
+    transition: width 600ms ease-out;
+}
+
+/* Activated state for sub-headings via JS or parent visibility */
+.visible .pub-group h3, .visible.pub-group h3 {
+    padding-left: 10px;
+}
+.visible .pub-group h3::before, .visible.pub-group h3::before {
+    width: 4px;
+}
+
+.pub-list li {
+    padding: 10px 0;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    padding-left: 20px;
+}
+.pub-list li::before {
+    content: '📄';
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Achievements Section
+   ========================================================================== */
+.achievement-list li {
+    padding: 10px 0;
+    color: var(--text-muted);
+    border-bottom: 1px dashed var(--border-color);
+    position: relative;
+    padding-left: 25px;
+}
+
+.achievement-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Certifications (Chips)
+   ========================================================================== */
+.chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.chip {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+/* ==========================================================================
+   Contact & Footer
+   ========================================================================== */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+    color: var(--text-main);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.contact-item a {
+    color: var(--text-main);
+}
+
+.contact-item a:hover {
+    color: var(--accent-color);
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: #A0AEC0;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Animations & Transitions (Prefers Reduced Motion Support)
+   ========================================================================== */
+
+/* Base Initial States for Scroll Animations */
+.fade-up { opacity: 0; transform: translateY(40px); }
+.fade-in { opacity: 0; }
+.slide-left { opacity: 0; transform: translateX(-40px); }
+.slide-right { opacity: 0; transform: translateX(40px); }
+.scale-in { opacity: 0; transform: scale(0.6); }
+
+@media (prefers-reduced-motion: no-preference) {
+    /* 1. Scrolling Animations */
+    .fade-up, .fade-in, .slide-left, .slide-right, .scale-in {
+        transition: opacity 600ms ease-out, transform 600ms ease-out;
+    }
+
+    /* 2. Hover Effects */
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 24px rgba(27, 58, 107, 0.15); /* Royal/Navy shadow */
+    }
+
+    .chip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(42, 168, 196, 0.4); /* Teal/Sky blue glow */
+    }
+
+    /* Star pulse triggered only once when visible */
+    .visible .gold-star, .visible.gold-star {
+        animation: starPulse 500ms ease-out forwards;
+        animation-delay: 600ms;
+    }
+}
+
+/* Visibility Triggered by JS Intersection Observer */
+.visible.fade-up, .visible .fade-up,
+.visible.slide-left, .visible .slide-left,
+.visible.slide-right, .visible .slide-right,
+.visible.scale-in, .visible .scale-in {
+    opacity: 1;
+    transform: none;
+}
+
+.visible.fade-in, .visible .fade-in {
+    opacity: 1;
+}
+
+@keyframes starPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* Card Ripple Effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(42, 168, 196, 0.2); /* Teal alpha */
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .ripple {
+        animation: ripple-animation 600ms ease-out forwards;
+    }
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Disable animations for users preferring reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .fade-up, .fade-in, .slide-left, .slide-right, .scale-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .hero-logo, .sonar-ring, .hero-subtitle, .hero-buttons, .scroll-chevron, .blob {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+    
+    .btn-whatsapp-hero {
+        animation: none !important;
+    }
+    
+    .gold-star {
+        animation: none !important;
+    }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        background-color: var(--primary-color);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-buttons, .contact-buttons {
+        flex-direction: column;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
